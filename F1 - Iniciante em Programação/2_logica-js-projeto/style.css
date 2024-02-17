@@ -152,6 +152,16 @@ button:disabled {
     border: 4px solid red;
 }
 
+@media screen and (max-width: 480px) {
+    h1 {
+        text-align: center;
+        padding-bottom: 30px;
+    }
+    .texto__paragrafo {
+        font-size: 18px;
+    }
+}
+
 /* ANIMAÇÃO */
 @keyframes balancar {
     0% {
