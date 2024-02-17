@@ -63,6 +63,14 @@ body::before {
     font-weight: 700;
     border: none;
     margin-top: 2rem;
+
+    transition: all .4s ease;
+}
+.container__botao:not(:disabled):hover {
+    filter: brightness(0.8);
+}
+.container__botao:not(:disabled):active {
+    transform: scale(0.9);
 }
 
 .container__texto {
@@ -138,4 +146,21 @@ button:disabled {
     .container__informacoes {
         padding: 1rem
     }
+}
+
+.input-vazio {
+    border: 4px solid red;
+}
+
+/* ANIMAÇÃO */
+@keyframes balancar {
+    0% {
+        transform: rotate(1deg);
+    }
+    50% {
+        transform: rotate(-1deg);
+    }
+}
+.animate {
+    animation: balancar .4s;
 }
