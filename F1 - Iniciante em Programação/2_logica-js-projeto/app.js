@@ -1,9 +1,23 @@
 // Variaveis e Funções:
-let numeroSecreto;
+let numerosJaSorteados = [];
+let limiteSorteio = 5;
+let numSecreto;
 let tentativa;
+const elementInput = document.querySelector('input');
 
-function gerarNumAleatorio(max) {
-    return Math.floor(Math.random() * max + 1);
+function gerarNumAleatorio(max=limiteSorteio) {
+    let numSorteado = Math.floor(Math.random() * max + 1);
+
+    if(numerosJaSorteados.length == limiteSorteio) {
+        numerosJaSorteados = [];
+    }
+
+    if(numerosJaSorteados.includes(numSorteado) || numSorteado == numSecreto) {
+        return gerarNumAleatorio();
+    } else {
+        numerosJaSorteados.push(numSorteado);
+        return numSorteado;
+    }
 }
 
 function innerTextElement(elemento, texto) {
@@ -12,13 +26,16 @@ function innerTextElement(elemento, texto) {
 }
 
 function iniciaJogo() {
-    numeroSecreto = gerarNumAleatorio(10);
-    console.log(numeroSecreto);
+    numSecreto = gerarNumAleatorio();
+    console.log('Num secreto: ' + numSecreto);
+    console.log(numerosJaSorteados);
     tentativa = 1;
 
     innerTextElement('h1', 'Jogo do número secreto');
-    innerTextElement('p', 'Escolha um número de 1 a 10:');
-    document.querySelector('input').value = ''; //limpa input
+    innerTextElement('p', `Escolha um número de 1 a ${limiteSorteio}:`);
+    
+    elementInput.value = ''; //limpa input
+    elementInput.setAttribute('max', limiteSorteio); //seta o atributo max do input
 }
 
 function desativaBtn(element, bool=true) {
@@ -35,16 +52,17 @@ function desativaBtn(element, bool=true) {
 // Inicializa programa:
 iniciaJogo();
 
+
 // Eventos da UI:
 function onVerificarChute() {
-    let inputChute = document.querySelector('input').value; //pega o valor do input
-    document.querySelector('input').classList.remove('input-vazio');
+    const chuteValue = elementInput.value; //pega o valor do input
+    elementInput.classList.remove('input-vazio');
     
-    if(inputChute == '') {
-        innerTextElement('p', 'Escolha um número de 1 a 10: (preencha o campo!)');
-        document.querySelector('input').classList.add('input-vazio', 'animate');
+    if(chuteValue == '') {
+        innerTextElement('p', `Escolha um número de 1 a ${limiteSorteio}: (preencha o campo!)`);
+        elementInput.classList.add('input-vazio', 'animate');
 
-    } else if(inputChute == numeroSecreto) {
+    } else if(chuteValue == numSecreto) {
         innerTextElement('h1', 'Acertou!');
         let mensagemTentativas = `Você descobriu o número secreto com ${tentativa} ${tentativa == 1 ? 'tentativa' : 'tentativas'}`;
         innerTextElement('p', mensagemTentativas);
@@ -53,9 +71,9 @@ function onVerificarChute() {
         desativaBtn('chute');
     } else {
         tentativa ++;
-        document.querySelector('input').classList.add('animate'); //add animação
+        elementInput.classList.add('animate'); //add animação
 
-        if(inputChute > numeroSecreto) {
+        if(chuteValue > numSecreto) {
             innerTextElement('p', 'O número secreto é menor!');
         } else {
             innerTextElement('p', 'O número secreto é maior!');
@@ -63,7 +81,7 @@ function onVerificarChute() {
     }
 
     setTimeout(()=> {
-        document.querySelector('input').classList.remove('animate');
+        elementInput.classList.remove('animate');
     }, 400)
 }
 
@@ -72,4 +90,3 @@ function onReiniciaJogo() {
     desativaBtn('reiniciar');
     desativaBtn('chute', false);
 }
-
