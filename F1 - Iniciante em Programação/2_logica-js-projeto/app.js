@@ -23,6 +23,7 @@ function gerarNumAleatorio(max=limiteSorteio) {
 function innerTextElement(elemento, texto) {
     let element = document.querySelector(elemento);
     element.innerHTML = texto;
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
 }
 
 function iniciaJogo() {
