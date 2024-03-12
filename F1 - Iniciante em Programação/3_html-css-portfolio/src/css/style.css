@@ -1,0 +1,121 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+    
+img {
+    display: inline-block;
+    width: 100%;
+    max-width: fit-content;
+}
+
+a {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+}
+
+input, textarea, select {
+    outline: none;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    display: inline-block;
+}
+/* RESET */
+
+
+html {
+    scroll-behavior: smooth;
+    
+    font-size: 62.5%; /* Pra usar rem divisivel por 10 */
+}
+  
+body {
+    height: 100dvh;
+
+    background-color: #000;
+    font-size: 1.6rem; /* Pra garantir q o padrao seja 16px no navegador*/
+    -webkit-font-smoothing: antialiased;
+    color: #F6F6F6;
+}
+body, input, textarea, button, select, a {
+    font-family: "Montserrat", sans-serif;
+}
+
+[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+/* GLOBAL */
+
+.PageInicial {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionApresentacao {
+    display: flex;
+    justify-content: space-between;
+    /* grid */
+    width: 100%;
+    max-width: 1163px;
+    /* margin: auto; */
+}
+
+.sectionApresentacao .apresentacao-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 59.3rem;
+}
+.sectionApresentacao .apresentacao-texto h1 {
+    font-family: 'Krona One', sans-serif;
+    font-size: 3.6rem;
+    font-weight: 400;
+    line-height: 155%;
+}
+.sectionApresentacao .apresentacao-texto h1 strong {
+    font-weight: 400;
+    color: #22D4FD;
+}
+.sectionApresentacao .apresentacao-texto p {
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.sectionApresentacao .apresentacao-texto .apresentacao-texto-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    align-items: center;
+}
+.sectionApresentacao .apresentacao-texto .apresentacao-texto-redes h3 {
+    font-family: 'Krona One', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    /* text-align: center; */
+}
+.sectionApresentacao .apresentacao-texto .apresentacao-texto-redes a {
+    width: 100%;
+    max-width: 37.8rem;
+    border: 2px solid #22D4FD;
+    border-radius: 8px;
+    padding: 16px 0;
+
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 150%;
+    text-align: center;
+}
