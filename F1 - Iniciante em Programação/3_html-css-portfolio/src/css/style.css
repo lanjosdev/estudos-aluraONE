@@ -1,3 +1,12 @@
+:root {
+    --color-primary: #22D4FD;
+    --color-text: #F6F6F6;
+    --color-bg: #000;
+    --color-hover: #272727;
+
+    --font-main: "Montserrat", sans-serif;
+    --font-headers: 'Krona One', sans-serif;
+}
 /* RESET */
 * {
     margin: 0;
@@ -33,6 +42,7 @@ button {
 /* RESET */
 
 
+/* GLOBAL */
 html {
     scroll-behavior: smooth;
     
@@ -42,14 +52,14 @@ html {
 body {
     min-height: 100dvh;
 
-    background-color: #000;
+    background-color: var(--color-bg);
 
     font-size: 1.6rem; /* Pra garantir q o padrao seja 16px no navegador*/
     -webkit-font-smoothing: antialiased;
-    color: #F6F6F6;
+    color: var(--color-text);
 }
 body, input, textarea, button, select, a {
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-main);
 }
 
 [disabled] {
@@ -59,7 +69,7 @@ body, input, textarea, button, select, a {
 /* GLOBAL */
 
 header {
-    color: #22D4FD;
+    color: var(--color-primary);
     padding: 4rem 15px 2rem;
     
     & nav {
@@ -77,9 +87,6 @@ header {
 }
 
 .PageInicial {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     padding: 10rem 15px;
 }
 
@@ -100,14 +107,14 @@ header {
     max-width: 59.3rem;
 }
 .sectionApresentacao .apresentacao-texto h1 {
-    font-family: 'Krona One', sans-serif;
+    font-family: var(--font-headers);
     font-size: 3.6rem;
     font-weight: 400;
     line-height: 155%;
 
     & strong {
         font-weight: 400;
-        color: #22D4FD;
+        color: var(--color-primary);
     }
 }
 .sectionApresentacao .apresentacao-texto p {
@@ -123,7 +130,7 @@ header {
     align-items: center;
 }
 .sectionApresentacao .apresentacao-texto .apresentacao-texto-redes h3 {
-    font-family: 'Krona One', sans-serif;
+    font-family: var(--font-headers);
     font-size: 2.4rem;
     font-weight: 400;
 }
@@ -134,7 +141,7 @@ header {
 
     width: 100%;
     max-width: 37.8rem;
-    border: 2px solid #22D4FD;
+    border: 2px solid var(--color-primary);
     border-radius: 8px;
     padding: 16px 0;
 
@@ -145,14 +152,14 @@ header {
     transition: all .3s ease;
 
     &:hover {
-        background-color: #272727;
+        background-color: var(--color-hover);
     }
 }
 
 footer {
-    background-color: #22D4FD;
+    background-color: var(--color-primary);
     padding: 2.4rem 15px;
-    color: #000;
+    color: var(--color-bg);
     text-align: center;
 
     & p {
