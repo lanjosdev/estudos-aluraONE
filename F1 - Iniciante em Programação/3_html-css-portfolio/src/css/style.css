@@ -40,9 +40,10 @@ html {
 }
   
 body {
-    height: 100dvh;
+    min-height: 100dvh;
 
     background-color: #000;
+
     font-size: 1.6rem; /* Pra garantir q o padrao seja 16px no navegador*/
     -webkit-font-smoothing: antialiased;
     color: #F6F6F6;
@@ -53,24 +54,43 @@ body, input, textarea, button, select, a {
 
 [disabled] {
     opacity: 0.6;
-    cursor: not-allowed;
+    cursor: not-allowed !important;
 }
 /* GLOBAL */
 
+header {
+    color: #22D4FD;
+    padding: 4rem 15px 2rem;
+    
+    & nav {
+        display: flex;
+        gap: 8rem;
+
+        /* grid */
+        width: 100%;
+        max-width: 1163px;
+        margin: auto;
+
+        font-size: 2.4rem;
+        font-weight: 600;
+    }
+}
+
 .PageInicial {
-    height: 100%;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    padding: 10rem 15px;
 }
 
 .sectionApresentacao {
     display: flex;
     justify-content: space-between;
+
     /* grid */
     width: 100%;
     max-width: 1163px;
-    /* margin: auto; */
+    margin: auto;
 }
 
 .sectionApresentacao .apresentacao-texto {
@@ -84,10 +104,11 @@ body, input, textarea, button, select, a {
     font-size: 3.6rem;
     font-weight: 400;
     line-height: 155%;
-}
-.sectionApresentacao .apresentacao-texto h1 strong {
-    font-weight: 400;
-    color: #22D4FD;
+
+    & strong {
+        font-weight: 400;
+        color: #22D4FD;
+    }
 }
 .sectionApresentacao .apresentacao-texto p {
     font-size: 2.4rem;
@@ -105,9 +126,12 @@ body, input, textarea, button, select, a {
     font-family: 'Krona One', sans-serif;
     font-size: 2.4rem;
     font-weight: 400;
-    /* text-align: center; */
 }
 .sectionApresentacao .apresentacao-texto .apresentacao-texto-redes a {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+
     width: 100%;
     max-width: 37.8rem;
     border: 2px solid #22D4FD;
@@ -116,6 +140,23 @@ body, input, textarea, button, select, a {
 
     font-size: 2.4rem;
     font-weight: 600;
-    line-height: 150%;
+    /* line-height: 150%; */
+
+    transition: all .3s ease;
+
+    &:hover {
+        background-color: #272727;
+    }
+}
+
+footer {
+    background-color: #22D4FD;
+    padding: 2.4rem 15px;
+    color: #000;
     text-align: center;
+
+    & p {
+        font-size: 2.4rem;
+        font-weight: 400;
+    }
 }
