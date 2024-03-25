@@ -1,3 +1,12 @@
+:root {
+    --color-primary: #22D4FD;
+    --color-text: #F6F6F6;
+    --color-bg: #000;
+    --color-hover: #272727;
+
+    --font-main: "Montserrat", sans-serif;
+    --font-headers: 'Krona One', sans-serif;
+}
 /* RESET */
 * {
     margin: 0;
@@ -33,6 +42,7 @@ button {
 /* RESET */
 
 
+/* GLOBAL */
 html {
     scroll-behavior: smooth;
     
@@ -40,37 +50,54 @@ html {
 }
   
 body {
-    height: 100dvh;
+    min-height: 100dvh;
 
-    background-color: #000;
+    background-color: var(--color-bg);
+
     font-size: 1.6rem; /* Pra garantir q o padrao seja 16px no navegador*/
     -webkit-font-smoothing: antialiased;
-    color: #F6F6F6;
+    color: var(--color-text);
 }
 body, input, textarea, button, select, a {
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-main);
 }
 
 [disabled] {
     opacity: 0.6;
-    cursor: not-allowed;
+    cursor: not-allowed !important;
 }
 /* GLOBAL */
 
+header {
+    color: var(--color-primary);
+    padding: 4rem 15px 2rem;
+    
+    & nav {
+        display: flex;
+        gap: 8rem;
+
+        /* grid */
+        width: 100%;
+        max-width: 1163px;
+        margin: auto;
+
+        font-size: 2.4rem;
+        font-weight: 600;
+    }
+}
+
 .PageInicial {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 10rem 15px;
 }
 
 .sectionApresentacao {
     display: flex;
     justify-content: space-between;
+
     /* grid */
     width: 100%;
     max-width: 1163px;
-    /* margin: auto; */
+    margin: auto;
 }
 
 .sectionApresentacao .apresentacao-texto {
@@ -80,14 +107,15 @@ body, input, textarea, button, select, a {
     max-width: 59.3rem;
 }
 .sectionApresentacao .apresentacao-texto h1 {
-    font-family: 'Krona One', sans-serif;
+    font-family: var(--font-headers);
     font-size: 3.6rem;
     font-weight: 400;
     line-height: 155%;
-}
-.sectionApresentacao .apresentacao-texto h1 strong {
-    font-weight: 400;
-    color: #22D4FD;
+
+    & strong {
+        font-weight: 400;
+        color: var(--color-primary);
+    }
 }
 .sectionApresentacao .apresentacao-texto p {
     font-size: 2.4rem;
@@ -102,20 +130,40 @@ body, input, textarea, button, select, a {
     align-items: center;
 }
 .sectionApresentacao .apresentacao-texto .apresentacao-texto-redes h3 {
-    font-family: 'Krona One', sans-serif;
+    font-family: var(--font-headers);
     font-size: 2.4rem;
     font-weight: 400;
-    /* text-align: center; */
 }
 .sectionApresentacao .apresentacao-texto .apresentacao-texto-redes a {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+
     width: 100%;
     max-width: 37.8rem;
-    border: 2px solid #22D4FD;
+    border: 2px solid var(--color-primary);
     border-radius: 8px;
     padding: 16px 0;
 
     font-size: 2.4rem;
     font-weight: 600;
-    line-height: 150%;
+    /* line-height: 150%; */
+
+    transition: all .3s ease;
+
+    &:hover {
+        background-color: var(--color-hover);
+    }
+}
+
+footer {
+    background-color: var(--color-primary);
+    padding: 2.4rem 15px;
+    color: var(--color-bg);
     text-align: center;
+
+    & p {
+        font-size: 2.4rem;
+        font-weight: 400;
+    }
 }
