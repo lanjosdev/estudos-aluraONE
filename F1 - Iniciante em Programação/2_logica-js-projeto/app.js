@@ -3,6 +3,7 @@ let numerosJaSorteados = [];
 let limiteSorteio = 5;
 let numSecreto;
 let tentativa;
+let clicouBody = false;
 const elementInput = document.querySelector('input');
 
 function gerarNumAleatorio(max=limiteSorteio) {
@@ -23,7 +24,8 @@ function gerarNumAleatorio(max=limiteSorteio) {
 function innerTextElement(elemento, texto) {
     let element = document.querySelector(elemento);
     element.innerHTML = texto;
-    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
+    if(clicouBody)
+        responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
 }
 
 function iniciaJogo() {
@@ -51,7 +53,15 @@ function desativaBtn(element, bool=true) {
 
 
 // Inicializa programa:
-iniciaJogo();
+innerTextElement('p', `Escolha um número de 1 a ${limiteSorteio}:`);
+
+document.body.addEventListener('click', ()=> {
+    if(!clicouBody) {
+        clicouBody = true;
+        iniciaJogo();
+    }
+});
+// iniciaJogo();
 
 
 // Eventos da UI:
