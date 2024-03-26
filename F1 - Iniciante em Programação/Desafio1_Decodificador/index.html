@@ -19,7 +19,7 @@
     <main class="app">
         <div class="app-input">
             <div class="input-texto">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Digite seu texto"></textarea>
+                <input id="input-text" type="text" placeholder="Digite seu texto"></input>
             </div>
 
             <div class="input-buttons">
@@ -27,15 +27,14 @@
                     <img src="./src/assets/info-icon.svg" alt="">
                     Apenas letras minúsculas e sem acento.
                 </small>
-
                 <div class="group-btns">
-                    <button id="cripto">Criptografar</button>
+                    <button id="cripto" onclick="onCriptografar()">Criptografar</button>
                     <button id="descripto">Descriptografar</button>
                 </div>
             </div>
         </div>
 
-        <div class="app-resul">
+        <div class="app-resul1">
             <div class="area-ilustra">
                 <img src="./src/assets/ilustra-resul.png" alt="">
             </div>
@@ -47,6 +46,21 @@
                 </p>
             </div>
         </div>
+        <div class="app-resul2 none">
+            <div id="resul-texto">
+                RESULTADO DO TEXTO AQUI
+            </div>
+
+            <div class="area-btn">
+                <button>Copiar</button>
+            </div>
+        </div>
     </main>
+
+    <!-- <footer>
+        <p>Desenvolvido por Lucas dos Anjos</p>
+    </footer> -->
+
+    <script defer src="./src/scripts/main.js"></script>
 </body>
 </html>

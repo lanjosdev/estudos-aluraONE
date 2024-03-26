@@ -76,5 +76,16 @@ main.app {
     .app-input {
         width: 100%;
         /* background-color: aqua; */
+
+        .input-texto input {
+            width: 100%;
+        }
+    }
+
+
+    
+    .none {
+        display: none;
     }
 }
+/* LAYOUT APP */
