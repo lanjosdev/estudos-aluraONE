@@ -84,7 +84,7 @@ main.app {
 
 
     
-    .none {
+    .hidden {
         display: none;
     }
 }
