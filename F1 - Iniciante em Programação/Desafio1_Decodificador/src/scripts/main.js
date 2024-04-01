@@ -139,3 +139,9 @@ function onDescriptpgrafar() {
         showElement('.app-resul1'); // resul inicial (nenhum texto)
     }
 }
+
+function onCopiarTexto() {
+    let textResul = resulTextUI.innerText;
+
+    navigator.clipboard.writeText(textResul);
+}
