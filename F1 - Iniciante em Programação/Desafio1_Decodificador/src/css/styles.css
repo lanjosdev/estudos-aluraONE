@@ -56,7 +56,9 @@ html {
 }
   
 body {
-    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+    min-height: fit-content;
 
     background-color: var(--color-bg);
 
@@ -78,26 +80,50 @@ body, input, textarea, button, select, a {
 /* LAYOUT APP */
 main.app {
     padding: 40px 15px;
+    height: 100%;
+    min-height: 600px;
 
     .grid {
         width: 100%;
         max-width: 1160px;
+        height: 100%;
         margin: auto;
 
         display: flex;
+        gap: 20px;
+        justify-content: space-between;
     }
 
     .app-input {
         width: 100%;
         max-width: 680px;
+        padding: 32px 12px;
         display: flex;
         flex-direction: column;
+        gap: 20px;
         justify-content: space-between;
 
+        .input-texto {
+            position: relative;
+            height: 100%;
+
+            &::after {
+                content: '';
+                height: 60px;
+                width: 100%;
+                background: rgb(243,245,252);
+                background: linear-gradient(0deg, rgba(243,245,252,1) 0%, rgba(243,245,252,0.8519782913165266) 55%, rgba(243,245,252,0) 100%);
+
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+        }
         .input-texto textarea {
             width: 100%;
-            height: 288px;
+            height: 100%;
             background-color: transparent;
+            padding-bottom: 50px;
             color: var(--color-primary);
 
             font-size: 32px;
@@ -114,18 +140,132 @@ main.app {
                 gap: 8px;
                 font-size: 12px;
                 line-height: 150%;
+
+                margin-bottom: 16px;
             }
 
             .group-btns {
+                display: flex;
+                gap: 10px;
+                justify-content: space-between;
+
+                button {
+                    background-color: var(--color-primary);
+                    width: 100%;
+                    max-width: 328px;
+                    padding: 24px 10px;
+                    border-radius: 24px;
+
+                    color: #fff;
+                    font-size: 16px;
+                    line-height: 120%;
+
+                    transition: all .3s ease;
+
+                    &:hover {
+                        filter: brightness(0.8);
+                    }
+                }
+                #descripto {
+                    background-color: var(--color-bg);
+                    border: 1px solid var(--color-primary);
+
+                    color: var(--color-primary);
+                }
             }
+        }
+    }
+
+    #app-resul {
+        background-color: #fff;
+        width: 100%;
+        max-width: 400px;
+        padding: 32px;
+        border-radius: 32px;
+        box-shadow: 0px 24px 32px -8px #00000014;
+
+        .app-resul1 {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            text-align: center;
+
+            .area-ilustra {
+                margin-bottom: 32px;
+            }
+            .area-text {
+                h3 {
+                    font-size: 24px;
+                    font-weight: 700;
+                    line-height: 120%;
+
+                    margin-bottom: 16px;
+                }
+                p {
+                    font-size: 16px;
+                    line-height: 150%;
+                }
+            }
+        }
+
+        .app-resul2 {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            justify-content: space-between;
+
+            #resul-texto {
+                position: relative;
+                height: 100%;
+                max-height: fit-content;
+                overflow: hidden auto;
+                padding-bottom: 20px;
+
+                font-size: 24px;
+                line-height: 150%;
+
+                /* &::after {
+                    content: '';
+                    height: 40px;
+                    width: 100%;
+                    background: rgb(255,255,255);
+                    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8519782913165266) 55%, rgba(255,255,255,0) 100%);
+    
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                } */
+            }
+            .area-btn button {
+                background-color: #fff;
+                width: 100%;
+                border: 1px solid var(--color-primary);
+                border-radius: 24px;
+                padding: 24px 10px;
+                
+                color: var(--color-primary);
+                font-size: 16px;
+                line-height: 120%;
+
+                transition: all .3s ease;
+
+                &:hover {
+                    filter: brightness(0.8);
+                }
+            }
+        }
+
+        .hidden {
+            display: none;
         }
     }
 
 
     
-    .hidden {
-        display: none;
-    }
+    
 }
 /* LAYOUT APP */
 
@@ -150,6 +290,10 @@ main.app {
 
     main.app {    
         .app-input {
+            .input-texto::after {
+                background: rgb(0,0,0);
+                background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0.8519782913165266) 55%, rgba(0,0,0, 0) 100%);
+            }
             .input-texto textarea {
                 color: #f0ece2;
             }
@@ -157,6 +301,10 @@ main.app {
             ::placeholder { /* Most modern browsers support this now. */
                 color: #f0ece2;
             }
+        }
+
+        #app-resul {
+            background-color: var(--color-hover);
         }
     }
 }
