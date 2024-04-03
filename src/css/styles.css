@@ -65,10 +65,6 @@ body {
     font-size: 1.6rem; /* Pra garantir q o padrao seja 16px no navegador*/
     -webkit-font-smoothing: antialiased;
     color: var(--color-text);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 body, input, textarea, button, select, a {
     font-family: var(--font-main);
@@ -300,6 +296,7 @@ footer {
     main.app {
         /* min-height: 600px; */
         /* min-height: fit-content; */
+        height: fit-content;
     
         .grid {
             flex-direction: column;
@@ -324,6 +321,11 @@ footer {
                     display: none;
                 }
             }
+
+            .app-resul2 {
+                height: 100%;
+                max-height: 550px;
+            }
         }
     }
 }
@@ -338,7 +340,7 @@ footer {
 
 
     main.app {
-        height: fit-content;
+        /* height: fit-content; */
 
         .app-input {
             min-height: 450px;
@@ -356,14 +358,6 @@ footer {
             }
             .input-texto textarea {
                 min-height: 250px;
-            }
-        }
-
-        #app-resul {
-       
-            .app-resul2 {
-                height: 100%;
-                max-height: 550px;
             }
         }
     }    
