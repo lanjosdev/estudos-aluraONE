@@ -65,6 +65,10 @@ body {
     font-size: 1.6rem; /* Pra garantir q o padrao seja 16px no navegador*/
     -webkit-font-smoothing: antialiased;
     color: var(--color-text);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 body, input, textarea, button, select, a {
     font-family: var(--font-main);
@@ -78,9 +82,27 @@ body, input, textarea, button, select, a {
 
 
 /* LAYOUT APP */
+header {
+    padding: 20px 15px;
+
+    .grid {
+        width: 100%;
+        max-width: 1160px;
+        height: 100%;
+        margin: auto;
+
+        padding: 0 12px;
+    }
+
+    img {
+        transform: translateX(-42px);
+    }
+}
+
+
 main.app {
     padding: 40px 15px;
-    height: 100%;
+    height: 80%;
     min-height: 600px;
 
     .grid {
@@ -200,10 +222,9 @@ main.app {
                     font-size: 24px;
                     font-weight: 700;
                     line-height: 120%;
-
-                    margin-bottom: 16px;
                 }
                 p {
+                    margin-top: 16px;
                     font-size: 16px;
                     line-height: 150%;
                 }
@@ -262,13 +283,92 @@ main.app {
             display: none;
         }
     }
-
-
-    
-    
 }
-/* LAYOUT APP */
 
+footer {
+    padding: 20px 15px;
+    text-align: center;
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* RESPONSIVIDADE */
+/* Tablet: */
+@media screen and (max-width: 768px) {
+    main.app {
+        /* min-height: 600px; */
+        /* min-height: fit-content; */
+    
+        .grid {
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 0;
+            align-items: center;
+        }
+
+        .app-input {
+            max-width: 688px;
+            padding: 32px 0;
+            height: 100%;
+            max-height: 700px;  
+        }
+
+        #app-resul {
+            max-width: 688px;
+
+            .app-resul1 {
+                /* height: 100%; */
+                .area-ilustra {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+/* Celular: */
+@media screen and (max-width: 400px) {
+    header {
+        .grid {
+            padding: 0;
+        }
+    }
+
+
+    main.app {
+        height: fit-content;
+
+        .app-input {
+            min-height: 450px;
+            
+           
+            /* display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: space-between; */
+
+            .input-texto {
+                position: relative;
+                height: 100%;
+                min-height: 250px;
+            }
+            .input-texto textarea {
+                min-height: 250px;
+            }
+        }
+
+        #app-resul {
+       
+            .app-resul2 {
+                height: 100%;
+                max-height: 550px;
+            }
+        }
+    }    
+}
+/* RESPONSIVIDADE */
 
 @media (prefers-color-scheme: dark) {
     body {
@@ -308,3 +408,5 @@ main.app {
         }
     }
 }
+
+/* LAYOUT APP */
