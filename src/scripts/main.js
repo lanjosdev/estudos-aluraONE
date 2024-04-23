@@ -13,7 +13,7 @@ const chavesCripto = {
     i: 'imes',
     o: 'ober', 
     u: 'ufat'
-}
+} // Daria pra fazer uma matriz ao inves de objeto
 
 // Resultado/conteudo na .app-resul1 > .area-text:
 const resultado = {
@@ -55,7 +55,7 @@ function showElement(element, newContent='') {
 function criptografar(texto) {
     let wordCripto = '';
 
-    for(let letra of texto) {
+    for(let letra of texto.toLowerCase()) {
         if(chavesCripto[letra]) {
             wordCripto += chavesCripto[letra];
         } else {
@@ -66,14 +66,19 @@ function criptografar(texto) {
     return wordCripto;
 }
 function descriptografar(texto) {
-    let newText = texto;
+    let newText = texto.toLowerCase();
     let keysValues = Object.entries(chavesCripto); //array com chaves:valores do objeto
 
-    for(let keyValue of keysValues) {
-        while( newText.includes(keyValue[1]) ) {
-            newText = newText.replace(keyValue[1], keyValue[0]);
+    // for(let keyValue of keysValues) {
+    //     while( newText.includes(keyValue[1]) ) {
+    //         newText = newText.replace(keyValue[1], keyValue[0]);
+    //     }
+    // }   
+    for(let itemKeyValue of keysValues) {
+        if(newText.includes(itemKeyValue[1])) {
+            newText = newText.replaceAll(itemKeyValue[1], itemKeyValue[0]);
         }
-    }   
+    }
 
     return newText;
 }
