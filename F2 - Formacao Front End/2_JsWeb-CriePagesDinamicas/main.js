@@ -1,6 +1,6 @@
 // Variaveis / Elementos da UI:
-const teclaPom = document.querySelector('.tecla_pom');
-// const somPom = document.querySelector('#som_tecla_pom');
+const teclas = document.querySelectorAll('.tecla');
+// const audios = document.querySelectorAll('audio');
 
 // Funções:
 function tocaSom(idAudio) {
@@ -9,4 +9,10 @@ function tocaSom(idAudio) {
 
 
 // Eventos da UI:
-teclaPom.onclick = ()=> tocaSom('#som_tecla_pom');
+// teclaPom.onclick = ()=> tocaSom('#som_tecla_pom');
+for(let i = 0; i < teclas.length; i++) {
+    let classIntrumento = teclas[i].classList[1];
+    let idAudio = `#som_${classIntrumento}`;
+
+    teclas[i].onclick = ()=> tocaSom(idAudio);
+}
