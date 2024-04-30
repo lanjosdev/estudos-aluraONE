@@ -25,16 +25,16 @@
 }
 
 html {
-    background: var(--main-bg-color);
     min-height: 100vh;
     font-size: 10px;
 }
 
 body {
+    background: var(--main-bg-color);
     min-height: 100vh;
-    background: url("./imagens/pattern.png");
+    /* background: url("./imagens/pattern.png");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -68,6 +68,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .app__title-strong {
     font-weight: 600;
+}
+
+@keyframes suave {
+    0% {
+        opacity: 0;
+    }
+}
+.suave {
+    animation: suave .5s linear;
 }
 
 .app__section-card-container {
