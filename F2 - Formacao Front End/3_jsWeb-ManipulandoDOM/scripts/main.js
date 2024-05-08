@@ -1,4 +1,4 @@
-// Variaveis / Elementos:
+// VARIAVEIS / ELEMENTOS:
 const body = document.body;
 
 // Botoes
@@ -14,8 +14,13 @@ const bannner = document.querySelector('.app__image');
 // Sons
 const inputMusica = document.querySelector('.toggle-checkbox');
 const audioFile = new Audio('./sons/luna-rise-part-one.mp3');
+const audioPlay = new Audio('./sons/play.wav');
+const audioPause = new Audio('./sons/pause.mp3');
+const audioFinaly = new Audio('./sons/beep.mp3');
 audioFile.loop = true;
 audioFile.volume = 0.6;
+audioPlay.volume = 0.6;
+audioPause.volume = 0.6;
 
 let tempoEmSegundos = 5;
 let intervaloRodando = null;
@@ -57,12 +62,16 @@ function ativarBtn(elemento) {
     elemento.classList.add('active');
 }
 
+function interromperIntervalo() {
+  clearInterval(intervaloRodando);
+  intervaloRodando = null;
+}
 function contagemRegrassiva() {
   if(tempoEmSegundos < 0) {
-    clearInterval(intervaloRodando);
-    intervaloRodando = null;
+    audioFinaly.play();
+    interromperIntervalo();
 
-    alert('Tempo finalizado!');
+    //alert('Tempo finalizado!');
     tempoEmSegundos = 5;
     return;
   }
@@ -73,17 +82,21 @@ function contagemRegrassiva() {
 function iniciarPausarContagem() {
   if(intervaloRodando) {
     console.log('PAUSOU');
-    clearInterval(intervaloRodando);
-    intervaloRodando = null;
+    // audioPlay.pause();
+    audioPause.play();
+    interromperIntervalo();
+    
     return;
   }
 
   console.log('INICIOU');
+  // audioPause.pause();
+  audioPlay.play();
   intervaloRodando = setInterval(contagemRegrassiva, 1000);
 }
 
 
-// EVENTOS/INTERATIVIDADE UI:
+// INICIO (EVENTOS/INTERATIVIDADE UI):
 btnFoco.addEventListener('click', ()=> {
     alterarContexto('foco');
     ativarBtn(btnFoco);
